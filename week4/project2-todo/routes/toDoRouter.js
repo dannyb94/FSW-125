@@ -84,14 +84,3 @@ toDoRouter
 
 
 module.exports = toDoRouter;
-
-/*
-Create endpoints that:
-
-XX -allows new todo items to be posted to the array,
-XX -When posting a new todo, you must generate a unique id for that todo (consider using the uuid npm package),
-XX -returns the entire list of todos,
--allows the user to update a todo by its _id,
-XX -allows the user to delete a todo by its _id, and
-XX -allows the user to retrieve a single todo by its _id.
-*/
