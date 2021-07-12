@@ -64,7 +64,7 @@ bountyRouter
         bounties.push(newbounty);
 
         console.log(bounties);
-        res.send(`Post successful! ${newbounty.bounties} was added to the open kill list.`);
+        res.send(newbounty /*`Post successful! ${newbounty.bounties} was added to the open kill list.`*/);
     })
 
     //Delete
@@ -80,7 +80,7 @@ bountyRouter
     .put('/:bountyId', (req, res) => {
         const bountyId = req.params.bountyId;
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId);
-        const updatedBounty = Object.assign(bounties[bountyIndex], req.body);
+        /*const updatedBounty =*/ Object.assign(bounties[bountyIndex], req.body);
 
         res.send(`A bounty has been updated.`);
     })
