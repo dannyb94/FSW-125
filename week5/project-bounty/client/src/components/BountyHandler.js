@@ -18,16 +18,18 @@ export default function BountyHandler({btnText, submit, name, gang, _id}){
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text"  name="name"  value={inputs.name}  onChange={handleChange}  placeholder="Bounty Name"/>
-            <input type="text"  name="gang"  value={inputs.gang}  onChange={handleChange}  placeholder="The Gang"/>
-            <input type="number"  name="price"  value={inputs.price}  onChange={handleChange}  placeholder="Price"/>
-            <input type="text"  name="lastSeen"  value={inputs.lastSeen}  onChange={handleChange}  placeholder="Last Seen"/>
-            <span>
-                <label>Living</label>
-                <select name="livingConfirm"  onChange={handleChange}>
-                    <option value={true}>Yes</option>
-                    <option value={false}>No</option>
-                </select>
+            <span id='alignIt'>
+                <input type="text"  name="name"  value={inputs.name}  className='switchUp'  onChange={handleChange}  placeholder="Bounty Name"/>
+                <input type="text"  name="gang"  value={inputs.gang}  className='switchUp'  onChange={handleChange}  placeholder="The Gang"/>
+                <input type="number"  name="price"  value={inputs.price}  className='switchUp'  onChange={handleChange}  placeholder="Price"/>
+                <input type="text"  name="lastSeen"  value={inputs.lastSeen}  className='switchUp'  onChange={handleChange}  placeholder="Last Seen"/>
+                <span id='wrapper'>
+                    <label>Living</label>
+                    <select name="livingConfirm" id='dropDown'  onChange={handleChange}>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                </span>
             </span>
             <br></br>
             <button id="postSub">{btnText}</button>
