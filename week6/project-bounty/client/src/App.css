@@ -1,0 +1,68 @@
+/*Bounties.js*/
+#cntnr1 {
+    text-align: center;
+}
+
+#dltBtn, #editBtn, #closeBtn/*, #postSub*/ {
+    border-radius: 4px;
+    border: none;
+    margin: 0 3px;
+    color: white;
+    padding: 3px 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#dltBtn {
+    background-color: rgb(255, 24, 24);
+}
+
+#editBtn {
+    background-color: rgb(24, 174, 255);
+}
+
+#closeBtn {
+    background-color: rgb(232, 232, 232);
+}
+
+#postSub {
+    border-radius: 4px;
+    border: none;
+    margin: 5px 3px;
+    background-color: rgb(240, 214, 128);
+    text-align: center;
+    color: white;
+    padding: 3px 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/*BountyHandler.js*/
+#alignIt {
+    text-align: center;
+    display: block;
+}
+
+.switchUp {
+    padding: 2px 5px;
+    border: solid rgb(0, 0, 0) 1px;
+    border-radius: 4px;
+    margin: 5px 5px;
+    font-size: 15px;
+}
+
+#dropDown {
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: solid rgb(0, 0, 0) 1px;
+    margin: 5px 5px;
+    font-size: 13px;
+}
+
+::placeholder {
+    color: lightgray;
+}
+
+#wrapper {
+    margin: 5px 5px;
+}
