@@ -15,6 +15,11 @@ let shoes = [
     type: "sneakers",
     _id: uuidv4()},
 
+    {brand: "Nike",
+    price: 145.67,
+    type: "sneakers",
+    _id: uuidv4()},
+
     {brand: "Sarto",
     price: 59.97,
     type: "flats",
