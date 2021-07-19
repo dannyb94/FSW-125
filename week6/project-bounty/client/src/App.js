@@ -3,18 +3,24 @@ import axios from 'axios';
 import './App.css';
 import Bounties from './components/Bounties';
 import BountyHandler from './components/BountyHandler';
-//import Kills from './components/Kills'
+import Kills from './components/Kills';
+import KillsHandler from './components/KillsHandler';
+import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
   const [bounties, setBounties] = useState([]);
-  //const [kills, setKills] = useState([]);
+  const [kills, setKills] = useState([]);
 
   const getBounties = () => {
     axios.get('/open-bounties')
       .then(res => setBounties(res.data))
       .catch(err => console.log(err.response.data.errMsg))
   }
+
+  useEffect(() => {
+    getBounties();
+  }, [])
 
   const addBounty = (newBounty) => {
     axios.post('/open-bounties', newBounty)
@@ -23,10 +29,6 @@ function App() {
       })
       .catch(err => console.log(err))
   }
-
-  useEffect(() => {
-    getBounties();
-  }, [])
 
   const deleteBounty = (bountyId) => {
     axios.delete(`/open-bounties/${bountyId}`)
@@ -44,32 +46,56 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  // useEffect(() => {
-  //   axios.get('/my-kills')
-  //     .then(res => setKills(res.data))
-  //     .catch(err => console.log(err))
-  // }, [])
+  //-------------------Kills----------------------------
+  const getKills = () => {
+    axios.get('/my-kills')
+      .then(res => setKills(res.data))
+      .catch(err => console.log(err))
+  }
 
+  useEffect(() => {
+    getKills()
+  }, [])
+
+  const addKill = (newKill) => {
+    axios.post('/my-kills', newKill)
+      .then(res => {
+        setKills(prevKill => [...prevKill, res.data])
+      })
+      .catch(err => console.log(err))
+  }/**/
+
+  const deleteKill = (killId) => {
+    axios.delete(`/my-kills/${killId}`)
+      .then(res => {
+        setKills(prevKill => prevKill.filter(kill => kill._id !== killId))
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
+
+  const editKills = (updated, killId) => {
+    axios.put(`/my-kills/${killId}`, updated)
+      .then(res => {
+        setKills(prevKill => prevKill.map(kill => kill._id !== killId ? kill : res.data))
+      })
+      .catch(err => console.log(err))
+  }
+
+  //-----------------------------------------------
   const bountyList = bounties.map(bounty => <Bounties {...bounty}  deleteBounty={deleteBounty}  editBounties={editBounties}  key={bounty.name} />)
-  //const killList =  kills.map(killed => <Kills {...killed} key={killed.name} />)
+
+  const killList =  kills.map(killed => <Kills {...killed} key={killed.name}  deleteKill={deleteKill} editKills={editKills} />)
 
   return (
     <div className='bounties'>
       <BountyHandler  btnText='Add Bounty' submit= {addBounty} />
-      {bountyList}
+      <KillsHandler btnTexts='Add Kill' submit={addKill} />
+      <Switch>
+        <Route exact path = "/open-bounties" render = {() => <div>{bountyList}</div>}/>
+        <Route exact path = "/my-kills" render = {() => <div>{killList}</div>}/>
+      </Switch>
     </div>
   );
 }
 
 export default App;
-
-
-/*
-X •Build a client-side React interface for the server you created!
-
-Your app should be a CRUD application - it should be able to: 
-X  -Create (POST) new bounties
-X  -Read (GET) existing bounties and show them to the user of your site
-  -Update (PUT) existing bounties (e.g. if you wanted to up the price for a bounty)
-X  -Delete (DELETE) bounties from the list of all bounties.
-*/
