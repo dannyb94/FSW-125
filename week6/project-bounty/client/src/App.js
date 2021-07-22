@@ -88,11 +88,15 @@ function App() {
 
   return (
     <div className='bounties'>
-      <BountyHandler  btnText='Add Bounty' submit= {addBounty} />
-      <KillsHandler btnTexts='Add Kill' submit={addKill} />
+      
+      
       <Switch>
-        <Route exact path = "/open-bounties" render = {() => <div>{bountyList}</div>}/>
-        <Route exact path = "/my-kills" render = {() => <div>{killList}</div>}/>
+        <Route exact path = "/open-bounties" render = {() => <div>
+          <BountyHandler  btnText='Add Bounty' submit= {addBounty} />
+          {bountyList}</div>}/>
+        <Route exact path = "/my-kills" render = {() => <div>
+          <KillsHandler btnTexts='Add Kill' submit={addKill} />
+          {killList}</div>}/>
       </Switch>
     </div>
   );
