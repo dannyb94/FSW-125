@@ -1,0 +1,84 @@
+/*App.js*/
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    gap: 17px;
+    overflow: scroll;
+    align-content: center;
+    margin: 20px 0;
+}
+
+.box{
+    padding: 10px;
+    /* border: 2px #c9c9c921 solid; */
+    border-radius: 10px;
+    margin: 4px 10px;
+    box-shadow: 3px 3px teal;
+    background-color: #fafafa;
+}
+
+/*AnimeFeatures, Cartoons, Movies*/
+.inputWrap{
+    display: flex;
+    justify-content: center;
+}
+
+.input{
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ebebeb;
+    font-size: 15px;
+}
+
+::placeholder {
+    color: #b4b4b4;
+}
+
+.submit{
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    background-color: #8ccab6;
+    color: #29313a;
+    font-weight: 700;
+}
+
+.title{
+    font-size: 20px;
+    margin: 3px 8px;
+}
+
+.genre{
+    margin: 0 8px;
+}
+
+.rent{
+    color: darkred;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0 8px;
+}
+
+.info{
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 8px;
+}
+
+.dltBtn, .editBtn, .closeBtn{
+    border-radius: 4px;
+    border: none;
+    position: relative;
+    left: 50%;
+    margin: 0 2px;
+}
+
+.dltBtn{
+    background-color: #ff806a;
+}

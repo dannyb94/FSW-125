@@ -94,6 +94,7 @@ function App() {
         <Route exact path = "/open-bounties" render = {() => <div>
           <BountyHandler  btnText='Add Bounty' submit= {addBounty} />
           {bountyList}</div>}/>
+          
         <Route exact path = "/my-kills" render = {() => <div>
           <KillsHandler btnTexts='Add Kill' submit={addKill} />
           {killList}</div>}/>
